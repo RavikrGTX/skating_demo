@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: var(--font-heading), system-ui, sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --color-brand-primary: #0f172a;
+  --color-brand-accent: #f59e0b;
+  --color-brand-accent-hover: #d97706;
+  --color-brand-blue: #0284c7;
+  --color-brand-surface: #f8fafc;
+  --color-brand-border: #e2e8f0;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-reveal {
+  animation: heroReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-delay-1 {
+  animation-delay: 150ms;
+}
+
+.animate-delay-2 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-3 {
+  animation-delay: 450ms;
+}
+
+

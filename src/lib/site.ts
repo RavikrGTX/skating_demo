@@ -14,10 +14,11 @@ export const SITE_CONFIG = {
 
 export const IMAGES = {
   hero: "/images/hero_skater.jpg",
-  skateWheels: "/images/skate_wheels.jpg",
-  curveRace: "/images/curve_race.jpg",
-  teamTrack: "/images/team_track.jpg",
+  skateWheels: "/images/skate_detail.jpg",
+  curveRace: "/images/hero_skater_2.jpg",
+  teamTrack: "/images/athlete_portrait.jpg",
+  achievements1: "/images/skating_achievments1.jpeg",
+  achievements2: "/images/skating_achievments2.jpeg",
   trainingBg: "/images/hero_skater_3.jpg",
-  kidsTraining: "/images/kids_training.jpg",
+  kidsTraining: "/images/kids_skating_class.jpg",
 } as const;
-

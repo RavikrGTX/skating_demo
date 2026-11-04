@@ -7,7 +7,7 @@ import { SITE_CONFIG } from "@/lib/site";
 
 const NAV_LINKS = [
   { name: "About", href: "/about" },
-  { name: "Training", href: "/#training" },
+  { name: "Training", href: "/training" },
   { name: "Reviews", href: "/#testimonials" },
   { name: "Contact", href: "/#contact" },
 ];

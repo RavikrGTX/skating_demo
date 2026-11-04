@@ -45,22 +45,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <a href="#about" className="hover:text-slate-950 transition-colors">
+                <Link href="/about" className="hover:text-slate-950 transition-colors">
                   About Academy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#training" className="hover:text-slate-950 transition-colors">
+                <a href="/#training" className="hover:text-slate-950 transition-colors">
                   Training Programs
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="hover:text-slate-950 transition-colors">
+                <a href="/#testimonials" className="hover:text-slate-950 transition-colors">
                   Parent Testimonials
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-slate-950 transition-colors">
+                <a href="/#contact" className="hover:text-slate-950 transition-colors">
                   Contact &amp; Admissions
                 </a>
               </li>

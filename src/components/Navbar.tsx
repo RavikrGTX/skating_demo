@@ -6,10 +6,10 @@ import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/site";
 
 const NAV_LINKS = [
-  { name: "About", href: "#about" },
-  { name: "Training", href: "#training" },
-  { name: "Reviews", href: "#testimonials" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/about" },
+  { name: "Training", href: "/#training" },
+  { name: "Reviews", href: "/#testimonials" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {

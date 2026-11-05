@@ -3,23 +3,23 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, MessageCircle, Menu, X } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/site";
+import { Phone, Menu, X } from "lucide-react";
+import { siteConfig } from "@/lib/siteConfig";
 
 const NAV_LINKS = [
   { name: "About", href: "/about" },
   { name: "Training", href: "/training" },
   { name: "Reviews", href: "/#testimonials" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -30,20 +30,20 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? "py-2.5 bg-slate-950/85 backdrop-blur-md border-b border-white/10 shadow-lg"
-          : "py-3 sm:py-5 bg-transparent"
+      className={`sticky top-0 left-0 right-0 z-50 w-full transition-all duration-200 ${
+        scrolled
+          ? "bg-slate-950/95 backdrop-blur-md border-b border-slate-800 shadow-xs"
+          : "bg-slate-950 border-b border-slate-800/80"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Left: Official Brand Logo Image */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Left: Academy Brand */}
         <Link
           href="/"
-          className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-2xl"
-          aria-label="Brilliant Speed Skating Academy Home"
+          className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+          aria-label="Brilliant Speed Skating Academy"
         >
-          <div className="relative h-11 w-11 sm:h-12 sm:w-12 rounded-2xl overflow-hidden bg-white p-1 border border-white/40 shadow-md transition-transform duration-200 group-hover:scale-105 shrink-0">
+          <div className="relative h-10 w-10 rounded-[10px] overflow-hidden bg-white p-1 border border-slate-700 shrink-0">
             <Image
               src="/images/logo_final.jpg"
               alt="Brilliant Speed Skating Academy Logo"
@@ -52,56 +52,56 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="sr-only">Brilliant Speed Skating Academy</span>
+          <span className="font-bold text-white text-sm sm:text-base tracking-tight">
+            Brilliant Speed Skating
+          </span>
         </Link>
 
-        {/* Center: Floating Glass Pill Navigation (Desktop) */}
+        {/* Center / Right: Standard Navigation Links */}
         <nav
           aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-1 sm:gap-2 px-4 py-1.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 text-white/90 text-xs font-medium tracking-wide shadow-lg"
+          className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300"
         >
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              className="px-3 py-1 rounded-full text-white/85 hover:text-white hover:bg-white/10 transition-all duration-200"
+              className="hover:text-white transition-colors py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Right: Phone link & White Enquire Pill */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        {/* Right: Phone & Solid Accent "Enquire" Button */}
+        <div className="flex items-center gap-4">
           <a
-            href={SITE_CONFIG.phoneLink}
-            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-white/90 hover:text-white transition-colors px-3 py-2"
+            href={siteConfig.phoneLink}
+            className="hidden lg:inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
           >
-            <Phone className="w-3.5 h-3.5 text-amber-400" />
-            <span>Call</span>
+            <Phone className="w-4 h-4 text-amber-500" strokeWidth={2} />
+            <span>{siteConfig.phoneDisplay}</span>
           </a>
 
-          <a
-            href={SITE_CONFIG.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-white text-slate-900 font-medium text-xs tracking-wide hover:bg-white/90 hover:shadow-md transition-all duration-200 active:scale-95"
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold transition-all duration-150 hover:-translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 shadow-xs"
           >
-            <MessageCircle className="w-3.5 h-3.5 text-slate-700" />
-            <span>Enquire</span>
-          </a>
+            Enquire
+          </Link>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors focus:outline-none"
-            aria-label="Toggle Navigation Menu"
+            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5" strokeWidth={2} />
             ) : (
-              <Menu className="w-5 h-5 text-white" />
+              <Menu className="w-5 h-5" strokeWidth={2} />
             )}
           </button>
         </div>
@@ -109,25 +109,25 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden px-4 pt-3 pb-5 bg-slate-950/95 backdrop-blur-xl border-b border-white/10">
-          <nav className="flex flex-col gap-2 pt-2">
+        <div className="md:hidden border-t border-slate-800 bg-slate-950 px-4 py-4">
+          <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900 transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <div className="pt-2 border-t border-white/10 flex items-center justify-between px-2">
+            <div className="pt-3 mt-2 border-t border-slate-800">
               <a
-                href={SITE_CONFIG.phoneLink}
-                className="inline-flex items-center gap-2 text-xs font-medium text-amber-400 py-2"
+                href={siteConfig.phoneLink}
+                className="flex items-center gap-2 text-sm font-medium text-amber-500 px-3 py-2"
               >
-                <Phone className="w-4 h-4" />
-                <span>{SITE_CONFIG.phoneDisplay}</span>
+                <Phone className="w-4 h-4" strokeWidth={2} />
+                <span>Call {siteConfig.phoneDisplay}</span>
               </a>
             </div>
           </nav>

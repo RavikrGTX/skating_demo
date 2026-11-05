@@ -1,108 +1,106 @@
 "use client";
 
-import { Phone, MessageCircle, MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
+import Link from "next/link";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-white text-slate-900 border-t border-slate-200/70">
+    <section id="contact" className="py-16 sm:py-24 bg-white text-slate-900 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-2xl mb-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600 block mb-3">
-            Contact &amp; Admissions
-          </span>
-          <h2 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-slate-950 leading-[1.1] mb-4">
-            Start Your Skating Journey in Hyderabad.
+        <div className="max-w-xl mb-12">
+          <p className="text-sm font-medium text-slate-500 mb-2">
+            Contact and admissions
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 leading-[1.1] mb-3">
+            Skating admissions in Hyderabad
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Have questions about age batches, beginner gear requirements, or training schedules? Reach out directly via WhatsApp or phone.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Reach out for batch timings, equipment guidance, or to book a trial session for your child.
           </p>
         </div>
 
         {/* Clean Contact Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-8">
           
           {/* Card 1: WhatsApp Inquiries */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-[#FAFCFD] border border-slate-200/80 flex flex-col justify-between hover:shadow-md transition-all">
+          <div className="rounded-xl p-6 bg-white border border-slate-200 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200/60 flex items-center justify-center text-emerald-600 mb-6">
-                <MessageCircle className="w-5 h-5" />
+              <div className="flex items-center gap-2 mb-3">
+                <MessageCircle className="w-5 h-5 text-emerald-600" />
+                <h3 className="text-lg font-semibold text-slate-900">
+                  WhatsApp chat
+                </h3>
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-950 mb-1">
-                WhatsApp Chat
-              </h3>
-              <p className="text-xs text-slate-500 mb-4">
-                Fastest response for fee details, batch timings &amp; admissions.
+              <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                Fastest way to get current fee structure and batch availability.
               </p>
-              <div className="text-sm font-semibold text-slate-900 mb-6">
-                +91 95533 93769
-              </div>
+              <p className="text-sm font-semibold text-slate-900 mb-6">
+                {siteConfig.phoneDisplay}
+              </p>
             </div>
 
             <a
-              href="https://wa.me/919553393769?text=Hello%20Brilliant%20Speed%20Skating%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20joining%20classes."
+              href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wider uppercase transition-all active:scale-98"
+              className="h-11 inline-flex items-center justify-center px-4 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             >
-              <span>Message on WhatsApp</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              Message on WhatsApp
             </a>
           </div>
 
           {/* Card 2: Direct Phone Call */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-[#FAFCFD] border border-slate-200/80 flex flex-col justify-between hover:shadow-md transition-all">
+          <div className="rounded-xl p-6 bg-white border border-slate-200 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200/60 flex items-center justify-center text-amber-600 mb-6">
-                <Phone className="w-5 h-5" />
+              <div className="flex items-center gap-2 mb-3">
+                <Phone className="w-5 h-5 text-amber-600" />
+                <h3 className="text-lg font-semibold text-slate-900">
+                  Phone call
+                </h3>
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-950 mb-1">
-                Direct Phone Call
-              </h3>
-              <p className="text-xs text-slate-500 mb-4">
-                Speak directly with academy coordinators and coaches.
+              <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                Speak directly with coaching staff about skater evaluation.
               </p>
-              <div className="text-sm font-semibold text-slate-900 mb-6">
-                +91 95533 93769
-              </div>
+              <p className="text-sm font-semibold text-slate-900 mb-6">
+                {siteConfig.phoneDisplay}
+              </p>
             </div>
 
             <a
-              href="tel:+919553393769"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-300 text-xs font-semibold tracking-wider uppercase transition-all active:scale-98"
+              href={siteConfig.phoneLink}
+              className="h-11 inline-flex items-center justify-center px-4 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             >
-              <Phone className="w-3.5 h-3.5 text-amber-500" />
-              <span>Call +91 95533 93769</span>
+              Call now
             </a>
           </div>
 
           {/* Card 3: Location & Sessions */}
-          <div className="rounded-3xl p-7 sm:p-8 bg-[#FAFCFD] border border-slate-200/80 flex flex-col justify-between hover:shadow-md transition-all">
+          <div className="rounded-xl p-6 bg-white border border-slate-200 flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-sky-50 border border-sky-200/60 flex items-center justify-center text-sky-600 mb-6">
-                <MapPin className="w-5 h-5" />
+              <div className="flex items-center gap-2 mb-3">
+                <MapPin className="w-5 h-5 text-slate-700" />
+                <h3 className="text-lg font-semibold text-slate-900">
+                  Academy location
+                </h3>
               </div>
-              <h3 className="font-heading text-xl font-bold text-slate-950 mb-1">
-                Academy Base
-              </h3>
-              <p className="text-xs text-slate-500 mb-4">
-                Dedicated training rinks and road circuits.
+              <p className="text-sm text-slate-600 mb-3">
+                {siteConfig.address}
               </p>
-              <div className="text-sm font-semibold text-slate-900 mb-2">
-                Hyderabad, Telangana, India
-              </div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
-                <span>Morning &amp; Evening Batches</span>
+              <div className="flex items-center gap-2 text-xs text-slate-600 mb-4">
+                <Clock className="w-4 h-4 text-slate-500" />
+                <span>Morning and evening batches</span>
               </div>
             </div>
 
-            <div className="pt-6">
-              <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
-                Weekend &amp; Weekday Sessions
-              </span>
-            </div>
+            <Link
+              href="/contact"
+              className="h-11 inline-flex items-center justify-center px-4 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+            >
+              View batches &amp; trial form
+            </Link>
           </div>
 
         </div>

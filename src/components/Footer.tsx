@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MessageCircle, MapPin, ArrowUp } from "lucide-react";
 
 export default function Footer() {
@@ -18,15 +19,27 @@ export default function Footer() {
           {/* Brand Info (6 cols) */}
           <div className="md:col-span-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-heading text-2xl font-black tracking-tight text-slate-950">
-                  BRILLIANT
-                </span>
-                <span className="w-2 h-2 rounded-full bg-amber-500" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="relative h-12 w-12 rounded-xl overflow-hidden bg-white p-1 border border-slate-200 shadow-xs shrink-0">
+                  <Image
+                    src="/images/logo_final.jpg"
+                    alt="Brilliant Speed Skating Academy Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-heading text-xl font-black tracking-tight text-slate-950">
+                      BRILLIANT
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-amber-500" />
+                  </div>
+                  <p className="text-[10px] font-bold tracking-[0.22em] text-slate-500 uppercase">
+                    Speed Skating Academy
+                  </p>
+                </div>
               </div>
-              <p className="text-xs font-bold tracking-[0.22em] text-slate-500 uppercase mb-4">
-                Speed Skating Academy
-              </p>
               <p className="text-xs sm:text-sm text-slate-600 max-w-sm leading-relaxed mb-6">
                 “Building confidence, discipline and speed — one stride at a time.”
               </p>

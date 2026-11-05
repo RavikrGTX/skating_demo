@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/site";
 
 const NAV_LINKS = [
   { name: "About", href: "/about" },
-  { name: "Training", href: "/#training" },
+  { name: "Training", href: "/training" },
   { name: "Reviews", href: "/#testimonials" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -31,27 +32,27 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "py-3 bg-slate-950/85 backdrop-blur-md border-b border-white/10 shadow-lg"
-          : "py-4 sm:py-6 bg-transparent"
+          ? "py-2.5 bg-slate-950/85 backdrop-blur-md border-b border-white/10 shadow-lg"
+          : "py-3 sm:py-5 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Left: Brand Monogram + Title */}
+        {/* Left: Official Brand Logo Image */}
         <Link
           href="/"
-          className="group flex items-center gap-2.5 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-lg"
+          className="group flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-2xl"
+          aria-label="Brilliant Speed Skating Academy Home"
         >
-          <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center font-heading font-black text-amber-400 text-sm tracking-tighter transition-transform duration-200 group-hover:scale-105">
-            B
+          <div className="relative h-11 w-11 sm:h-12 sm:w-12 rounded-2xl overflow-hidden bg-white p-1 border border-white/40 shadow-md transition-transform duration-200 group-hover:scale-105 shrink-0">
+            <Image
+              src="/images/logo_final.jpg"
+              alt="Brilliant Speed Skating Academy Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          <div className="flex flex-col">
-            <span className="font-heading text-lg sm:text-xl font-extrabold tracking-tight text-white leading-tight">
-              {SITE_CONFIG.shortName.toUpperCase()}
-            </span>
-            <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.22em] text-white/80 uppercase -mt-0.5">
-              {SITE_CONFIG.subtitle}
-            </span>
-          </div>
+          <span className="sr-only">Brilliant Speed Skating Academy</span>
         </Link>
 
         {/* Center: Floating Glass Pill Navigation (Desktop) */}

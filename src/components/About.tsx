@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Compass, Zap, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Compass, Zap, ArrowRight, ArrowUpRight } from "lucide-react";
 import { IMAGES } from "@/lib/site";
 import Reveal from "./Reveal";
 
@@ -22,9 +23,19 @@ export default function About() {
                 Speed. Discipline. Precision.
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-slate-600 max-w-sm font-normal">
-              Skating training for every level in Hyderabad.
-            </p>
+            
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <p className="text-sm sm:text-base text-slate-600 max-w-sm font-normal">
+                Skating training for every level in Hyderabad.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 shrink-0"
+              >
+                <span>Full Academy Story</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         </Reveal>
 
@@ -129,17 +140,26 @@ export default function About() {
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                  <div className="pt-6 mt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
                     <span className="text-xs text-slate-500 font-medium">
                       Hyderabad Training Circuits
                     </span>
-                    <a
-                      href="#training"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-amber-600 transition-colors uppercase tracking-wider group/link"
-                    >
-                      <span>View Training</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
-                    </a>
+                    <div className="flex items-center gap-3">
+                      <Link
+                        href="/about"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors uppercase tracking-wider"
+                      >
+                        <span>About Academy</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </Link>
+                      <Link
+                        href="/training"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-amber-600 transition-colors uppercase tracking-wider group/link"
+                      >
+                        <span>View Training</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
 

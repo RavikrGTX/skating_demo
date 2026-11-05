@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Phone, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/site";
 import Reveal from "./Reveal";
 
@@ -55,17 +56,29 @@ export default function Training() {
       className="py-20 sm:py-28 bg-[#F8FAFC] text-slate-900 border-t border-slate-200/70 scroll-mt-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Lead */}
-        <div className="mb-10 sm:mb-12 max-w-2xl">
-          <Reveal direction="up" delay={0}>
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mb-2">
-              COACHING &amp; PATHWAYS
-            </p>
-          </Reveal>
-          <Reveal direction="up" delay={100}>
-            <h2 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-slate-950">
-              Training Built for Every Speed.
-            </h2>
+        {/* Section Lead Header with CTA */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
+          <div className="max-w-2xl">
+            <Reveal direction="up" delay={0}>
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mb-2">
+                COACHING &amp; PATHWAYS
+              </p>
+            </Reveal>
+            <Reveal direction="up" delay={100}>
+              <h2 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-slate-950">
+                Training Built for Every Speed.
+              </h2>
+            </Reveal>
+          </div>
+
+          <Reveal direction="up" delay={120}>
+            <Link
+              href="/training"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide uppercase transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 shrink-0"
+            >
+              <span>Explore Training Page</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </Reveal>
         </div>
 
@@ -149,24 +162,32 @@ export default function Training() {
 
                   {/* Clean Action Buttons */}
                   <Reveal direction="up" delay={360}>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
                       <a
                         href={SITE_CONFIG.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide uppercase transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md active:scale-95"
+                        className="group inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide uppercase transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md active:scale-95"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
-                        <span>Enquire Online</span>
+                        <span>Enquire</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                       </a>
 
+                      <Link
+                        href="/training"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-semibold tracking-wide transition-all duration-200 shadow-2xs hover:-translate-y-0.5"
+                      >
+                        <span>Curriculum</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-slate-600" />
+                      </Link>
+
                       <a
                         href={SITE_CONFIG.phoneLink}
-                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-slate-700 hover:text-slate-950 text-xs font-semibold transition-colors"
+                        className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-full text-slate-700 hover:text-slate-950 text-xs font-semibold transition-colors"
                       >
                         <Phone className="w-3.5 h-3.5 text-amber-500" />
-                        <span>{SITE_CONFIG.phoneDisplay}</span>
+                        <span>Call</span>
                       </a>
                     </div>
                   </Reveal>

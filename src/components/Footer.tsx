@@ -73,9 +73,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/#contact" className="hover:text-slate-950 transition-colors">
+                <Link href="/contact" className="hover:text-slate-950 transition-colors">
                   Contact &amp; Admissions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -103,7 +103,7 @@ export default function Footer() {
                 href="https://wa.me/919553393769?text=Hello%20Brilliant%20Speed%20Skating%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20classes."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-950 text-white text-xs font-medium hover:bg-slate-800 transition-all shadow-xs"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>WhatsApp Admissions</span>
